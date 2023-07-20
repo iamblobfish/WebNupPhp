@@ -1,0 +1,36 @@
+:root {
+    --b: #00ffff;
+    --p: #7200cc;
+    --font-family: "PT Sans", sans-serif;
+    --main-size: 1.5vw;
+    --grad: linear-gradient(45deg, var(--b), var(--p)) ;
+}
+
+::placeholder {
+    color: rgba(0,255,255,70%);
+    box-shadow: none;
+}
+
+.gradient-border {
+    font-size: var(--main-size);
+    width: 20vw;
+    height: 10%;
+    border-radius: 0.8vw;
+    overflow: hidden;
+    display: block;
+    margin: 1% auto;
+}
+
+.sub-gb  {
+    height: 100%;
+    border: 0.3vw solid;
+    border-image: var(--grad) 1;
+}
+
+input {
+    height: 100%;
+    background: none;
+    border:none;
+    outline: none;
+    padding: 0.3rem;
+}

@@ -1,0 +1,36 @@
+:root {
+    --b: #00ffff;
+    --p: #7200cc;
+    --font-family: "PT Sans", sans-serif;
+    --main-size: 1.5vw;
+    --grad: linear-gradient(45deg, var(--b), var(--p)) ;
+}
+
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/CheapFonFinal.png);
+    background-size: 100%;
+}
+
+* {
+    color: var(--b);
+    font-family: var(--font-family);
+    font-size: var(--main-size);
+    display: block;
+    margin: 0.5% auto;
+}
+
+.text {
+    padding: 0.2rem;
+    cursor: pointer;
+}
+
+.content {
+    position: relative;
+    text-align: center;
+}
