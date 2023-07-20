@@ -58,47 +58,26 @@ body {
     background-color: #0056b3;
 }
 
-/*.header-container {*/
-/*    text-align: center;*/
-/*    margin: 20px 0;*/
-/*    position: relative; !* Add relative positioning for SVG and search *!*/
-/*}*/
-
-/*.svg-images {*/
-/*    position: relative;*/
-/*    transform: translateX(-50%);*/
-/*    display: inline;*/
-/*    justify-content: space-between;*/
-/*    width: 200px; !* Adjust the width as needed *!*/
-/*}*/
-
-/*.svg-images img {*/
-/*    width: 40px; !* Adjust the SVG image width as needed *!*/
-/*}*/
 
 .search-bar {
     display: flex; /* Use flexbox to arrange elements in a line */
     align-items: center; /* Vertically center elements */
-    padding: 10px;
 }
 
 .gradient-border{
     flex: 0.5;
+    margin-right: 0;
 }
 
 .search-input {
-    text-align: ;
-     /* The search input will expand to fill the available space */
-    padding: 8px;
+    text-align: left;
+    width: calc(100% - 40px);
+    /*padding: 8px;*/
 }
 
 .search-btn {
-    margin-left: 10px; /* Add some spacing between the input and button */
-    padding: 8px 16px;
     border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    height: 40px;
+    width: 40px;
+    margin-right: 0;
 }
