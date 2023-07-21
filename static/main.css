@@ -6,6 +6,13 @@
     --grad: linear-gradient(45deg, var(--b), var(--p)) ;
 }
 
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 
 .background-image {
     position: absolute;
@@ -15,7 +22,7 @@
     width: 100%;
     height: auto;
     min-height: 100%;
-    background-image: url(images/CheapFonFinal.png);
+    background-image: url(../static/images/CheapFonFinal.png);
     background-size: 100%;
 }
 
