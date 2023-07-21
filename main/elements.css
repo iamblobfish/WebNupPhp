@@ -1,0 +1,21 @@
+.important-button {
+    border-color: var(--b);
+    border-radius: 10px;
+    background: none;
+    cursor: pointer;
+    padding: 0.5rem 5vw;
+    margin: 3vh auto;
+
+}
+
+.important-button:hover {
+    background: var(--grad) ;
+}
+
+.icon {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    width: 20vw;
+    height: 20vw;
+}
+

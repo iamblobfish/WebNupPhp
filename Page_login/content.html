@@ -3,16 +3,19 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../main/main.css">
     <link rel="stylesheet" type="text/css" href="../main/grad_border.css">
+    <link rel="stylesheet" type="text/css" href="../main/elements.css">
+
     <link rel="stylesheet" type="text/css" href="layout.css">
+
 </head>
 <body>
 <!--Background-->
-<div class="background-image"></div>
+<div class="background-image">
 
 <!--Content-->
 <div class="container">
     <div class="content">
-        <img src="dress1.png" class="icon" alt="Image">
+        <img src="../images/dress1.png" class="icon" alt="Image">
         <div class="gradient-border"> <div class="sub-gb">
                 <input type="email" placeholder="Email">
         </div></div>
@@ -20,13 +23,16 @@
                 <input type="password" placeholder="Password">
         </div></div>
 
-        <button class="important-button">Login</button>
+        <button id="loginBtn" class="important-button">Login</button>
 
-        <span class="text">Forgot password?</span>
-        <span class="text">Continue as guest</span>
+        <span id="fgtPassword" class="text">Forgot password?</span>
+        <span id="guestMode" class="text">Continue as guest</span>
 
     </div>
 </div>
+</div>
+
+<script src="../main/behavior.js"></script>
 </body>
 </html>
 
