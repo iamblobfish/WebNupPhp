@@ -4,14 +4,14 @@ db_config = {
     'host': 'localhost',
     'user': 'root',
     'password': '1029384756',
-    'database': 'database_name',
+    'database': 'users',
 }
 
 connection = mysql.connector.connect(**db_config)
 
 cursor = connection.cursor()
 
-query = "SELECT * FROM table_name;"
+query = "SELECT * FROM ;"
 cursor.execute(query)
 
 result = cursor.fetchall()
