@@ -8,11 +8,11 @@ const loginBtn = document.getElementById("loginBtn");
 // Add a click event listener to the button
 fgtPassword.addEventListener("click",
     function () {
-        window.location.href = "../Page_reset/content.html";
+        window.location.href = "../templates/reset.html";
     });
 loginBtn.addEventListener("click",
     function () {
-        window.location.href = "../Page_search/content.html";
+        window.location.href = "../templates/search.html";
     });
 sendLink.addEventListener("click",
     function () {
