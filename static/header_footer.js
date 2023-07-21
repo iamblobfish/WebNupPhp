@@ -1,4 +1,6 @@
-fetch("../templates/header.html")
+fetch("../templates/" +
+    "" +
+    "header.html")
     .then(response => response.text())
     .then(data => {
         // Insert the header content into the div with class "background-image"

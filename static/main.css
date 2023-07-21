@@ -2,15 +2,9 @@
     --b: #00ffff;
     --p: #7200cc;
     --font-family: "PT Sans", sans-serif;
-    --main-size: 1.5vw;
-    --grad: linear-gradient(45deg, var(--b), var(--p)) ;
-}
-
-body {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    --main-size: 20px;
+    --grad: linear-gradient(45deg, var(--b), var(--p));
+    --gradB: linear-gradient(45deg, #00a0a0, #7200cc);
 }
 
 
@@ -22,7 +16,7 @@ body {
     width: 100%;
     height: auto;
     min-height: 100%;
-    background-image: url(../static/images/CheapFonFinal.png);
+    background-image: url(images/backgroung.png);
     background-size: 100%;
 }
 
@@ -31,8 +25,8 @@ body {
     font-family: var(--font-family);
     font-size: var(--main-size);
     display: block;
-    margin: 0.5% auto;
     border-color: var(--b);
+    margin: 0.5rem auto;
 }
 
 .text {
@@ -43,4 +37,8 @@ body {
 .content {
     position: relative;
     text-align: center;
+    align-content: center;
+    align-items: center;
+    alignment-baseline: center;
+    align-self: center;
 }

@@ -1,21 +1,41 @@
 .important-button {
-    border-color: var(--b);
-    border-radius: 10px;
-    background: none;
+    width: 7rem;
     cursor: pointer;
-    padding: 0.5rem 5vw;
-    margin: 3vh auto;
-
+    padding: 0.5rem;
+    margin: 1.5rem auto;
 }
 
 .important-button:hover {
-    background: var(--grad) ;
+    background: var(--gradB);
 }
 
 .icon {
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    width: 20vw;
-    height: 20vw;
+    padding-top: 55px;
+    padding-bottom: 30px;
+    width: 15rem;
+    height: 15rem;
+    margin: 0.5% auto;
+    align-self: center;
 }
 
+::placeholder {
+    color: rgba(0,255,255,70%);
+    box-shadow: none;
+}
+
+.gradient {
+    margin: 1.5rem auto;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(rgb(21,13,64), rgb(21,13,64)) padding-box,
+    linear-gradient(45deg, var(--b), var(--p)) border-box;
+    border: 2px solid transparent;
+}
+
+input {
+    width: 15rem;
+    background: none;
+    border:none;
+    outline: none;
+    text-align: left;
+}
