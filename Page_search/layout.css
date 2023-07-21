@@ -1,26 +1,12 @@
-:root {
-    --b: #00ffff;
-    --p: #7200cc;
-    --font-family: "PT Sans", sans-serif;
-    --main-size: 3vh;
-    --grad: linear-gradient(45deg, var(--b), var(--p)) ;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
 .catalog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 2vw;
     padding: 20px;
 }
 
 .item {
-    border: 1px solid #ccc;
+    border: 1px solid;
     border-radius: 5px;
     padding: 10px;
     text-align: center;
@@ -34,52 +20,17 @@ body {
     border-radius: 50%;
 }
 
-.price {
+p {
     font-weight: bold;
-    color: #007bff;
 }
 
 .name {
-    font-weight: bold;
     margin: 10px 0;
 }
-
-.buy-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.buy-button:hover {
-    background-color: #0056b3;
-}
-
-/*.header-container {*/
-/*    text-align: center;*/
-/*    margin: 20px 0;*/
-/*    position: relative; !* Add relative positioning for SVG and search *!*/
-/*}*/
-
-/*.svg-images {*/
-/*    position: relative;*/
-/*    transform: translateX(-50%);*/
-/*    display: inline;*/
-/*    justify-content: space-between;*/
-/*    width: 200px; !* Adjust the width as needed *!*/
-/*}*/
-
-/*.svg-images img {*/
-/*    width: 40px; !* Adjust the SVG image width as needed *!*/
-/*}*/
 
 .search-bar {
     display: flex; /* Use flexbox to arrange elements in a line */
     align-items: center; /* Vertically center elements */
-    padding: 10px;
 }
 
 .gradient-border{
@@ -87,18 +38,14 @@ body {
 }
 
 .search-input {
-    text-align: ;
-     /* The search input will expand to fill the available space */
-    padding: 8px;
+    text-align: left;
+    padding-left: 1rem;
+    width: calc(100% - 40px);
 }
 
 .search-btn {
-    margin-left: 10px; /* Add some spacing between the input and button */
-    padding: 8px 16px;
     border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
 }
