@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="../static/main.css">
     <link rel="stylesheet" type="text/css" href="../static/elements.css">
     <link rel="stylesheet" type="text/css" href="../static/grad_border.css">
+    <link rel="stylesheet" type="text/css" href="../static/login.css">
 
 </head>
 <body>
@@ -13,26 +14,21 @@
     <!--Content-->
     <div class="container">
         <div class="content">
-            <img src="../static/images/dress1.png" class="icon" alt="Image">
-            <div class="gradient-border">
-                <div class="sub-gb">
-                    <input type="email" placeholder="Email">
-                </div>
-            </div>
-            <div class="gradient-border">
-                <div class="sub-gb">
-                    <input type="password" placeholder="Password">
-                </div>
-            </div>
+            <img src="../static/images/dress1.png" class="icon " alt="Image">
 
-            <button class="important-button">Login</button>
+            <input type="email" class="gradient" placeholder="Email">
 
-            <span class="text">Forgot password?</span>
-            <span class="text">Continue as guest</span>
+            <input type="password" class="gradient" placeholder="Password">
+
+            <button class="important-button gradient">Login</button>
+
+            <span id="fgtPassword" class="text">Forgot password?</span>
+            <span id="guestMode" class="text">Continue as guest</span>
 
         </div>
     </div>
 </div>
+<script src="../static/pages_connections.js"></script>
 </body>
 </html>
 
