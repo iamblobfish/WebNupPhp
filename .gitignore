@@ -6,7 +6,6 @@
 .idea/workspace.xml
 .idea/.gitignore
 .idea/WebNUP.iml
-*.ipynb
 *.DS_Store
 venv
 # Editor-based HTTP Client requests
