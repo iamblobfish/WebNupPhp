@@ -11,7 +11,6 @@ db_config = {
     'password': '1029384756',
     'database': 'users',
 }
-# def password_to_hash
 
 # # Настройка логгера
 # logging.basicConfig(level=logging.DEBUG,
@@ -32,7 +31,7 @@ db_config = {
 def index():
     # app.logger.info("Login page requsted")
     response = make_response(render_template('login.html'))
-    response.headers['Cache-Control'] = 'public, max-age=3600'
+    # response.headers['Cache-Control'] = 'public, max-age=3600'
     return response
 
 
@@ -41,7 +40,6 @@ def login():
     data = request.get_json()
     email = data.get('email')
     password = data.get('password')
-    print(password)
 
     cursor = connection.cursor()
     query = "SELECT hashed_password FROM users_info WHERE email = %s"
@@ -52,8 +50,6 @@ def login():
         return jsonify({'message': 'User not found'}), 404
 
     hashed_password = result[0]
-    print(hashed_password)
-    print(hashlib.sha512(password.encode('utf8')).hexdigest())
 
     if hashlib.sha512(password.encode('utf8')).hexdigest() != hashed_password:
         return jsonify({'message': "Wrong password"}), 401
@@ -62,19 +58,18 @@ def login():
 
     return jsonify({'message': "Success!"}), 200
 
+@app.route('/search')
+def get_dress():
+    data = request.get_json()
+    cursor = connection.cursor()
+    queue = "select title, collection, source, price from dresses"
+    cursor.execute(queue)
+    result = list(cursor.fetchone())
+    print(result)
+
 
 if __name__ == '__main__':
     connection = mysql.connector.connect(**db_config)
     app.debug = True
     app.run()
     connection.close()
-
-# query = "SELECT * FROM users_info;"
-# cursor.execute(query)
-#
-# result = cursor.fetchall()
-#
-# for row in result:
-#     print(row)
-#
-# cursor.close()
