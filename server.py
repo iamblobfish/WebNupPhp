@@ -12,6 +12,7 @@ db_config = {
     'database': 'users',
 }
 
+
 # # Настройка логгера
 # logging.basicConfig(level=logging.DEBUG,
 #                     format='%(asctime)s [%(levelname)s] %(message)s',
@@ -29,17 +30,21 @@ db_config = {
 def main():
     return render_template('main.html')
 
+
 @app.route('/category')
 def cathegory():
     return render_template('category.html')
+
 
 @app.route('/item')
 def item():
     return render_template('item.html')
 
+
 @app.route('/reset')
 def reset():
     return render_template('reset.html')
+
 
 @app.route('/login')
 def index():
@@ -72,6 +77,7 @@ def login():
 
     return jsonify({'message': "Success!"}), 200
 
+
 @app.route('/search')
 def get_dress():
     # data = request.get_json()
@@ -82,6 +88,37 @@ def get_dress():
     print(result)
     cursor.close()
     return render_template('search.html')
+
+
+def get_items_from_db(item_id):
+    cursor = connection.cursor()
+
+    query = "SELECT id, title, collection, category, price, description FROM items where id = %s"
+    cursor.execute(query, item_id)
+
+    item_data = cursor.fetchall()
+
+    cursor.close()
+
+    return item_data
+
+
+@app.route('/get_items/<int:item_id>')
+def get_items(item_id):
+    items_data = get_items_from_db(item_id)
+    items_list = []
+    for item in items_data:
+        item_dict = {
+            'id': item[0],
+            'title': item[1],
+            'collection': item[2],
+            'category': item[3],
+            'price': item[4],
+            'description': item[5]
+        }
+        items_list.append(item_dict)
+
+    return jsonify({'items': items_list})
 
 
 if __name__ == '__main__':
