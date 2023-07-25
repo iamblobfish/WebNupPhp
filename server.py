@@ -37,6 +37,10 @@ def cathegory():
 def item():
     return render_template('item.html')
 
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
 @app.route('/reset')
 def reset():
     return render_template('reset.html')

@@ -80,3 +80,22 @@ p {
 .name {
     margin: 10px 0;
 }
+
+.register input {
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.register label {
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+
+.register img {
+    padding-top: 0;
+    width: 150px;
+    height: 150px;
+}

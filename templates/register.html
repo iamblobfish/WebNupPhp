@@ -7,30 +7,31 @@
 
 </head>
 <body>
-<!--Background-->
-
 
 <!--Content-->
 <div class="container">
-    <div class="content">
+    <div class="content register">
         <img src="../static/images/dress1.png" class="icon " alt="Image">
 
         <input id="email" type="email" class="gradient" placeholder="Email">
+        <input id="name" type="text" class="gradient" placeholder="Name">
+        <input id="surname" type="text" class="gradient" placeholder="Surname">
+        <input id="phone" type="tel" class="gradient" placeholder="Phone">
 
         <input id="password" type="password" class="gradient" placeholder="Password">
+        <input id="password_rep" type="password" class="gradient" placeholder="Repeat Password">
 
         <button id="login" class="important-button gradient">Login</button>
         <button id="back" class="important-button">Back</button>
 
-        <span id="register" class="text">Register</span>
-        <span id="fgtPassword" class="text">Forgot password?</span>
         <span id="guestMode" class="text">Continue as guest</span>
 
     </div>
 </div>
 
 {% include "footer.html" %}
-<script type="module" src="../static/check_login.js"></script>
+
+<script type="module" src="../static/register.js"></script>
 </body>
 </html>
 
