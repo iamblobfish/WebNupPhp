@@ -1,12 +1,6 @@
 # Default ignored files
 /shelf/
-.idea
-.idea/workspace.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/workspace.xml
-.idea/.gitignore
-.idea/WebNUP.iml
+.idea/*`
 *.DS_Store
 venv
 # Editor-based HTTP Client requests
