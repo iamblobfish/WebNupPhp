@@ -5,19 +5,7 @@
     --main-size: 20px;
     --grad: linear-gradient(45deg, var(--b), var(--p));
     --gradB: linear-gradient(45deg, #00a0a0, #7200cc);
-}
-
-
-.background-image {
-    position: absolute;
-    margin: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    min-height: 100%;
-    background-image: url(images/background.png);
-    background-size: 100%;
+    --bp: rgb(21, 13, 64);
 }
 
 * {
@@ -26,7 +14,35 @@
     font-size: var(--main-size);
     display: block;
     border-color: var(--b);
+    /*background-color: rgb(21,13,64);*/
+}
 
+body {
+    background-image: url(images/background.png);
+    background-size: 100%;
+    min-height: 100vh;
+}
+
+button#back{
+    background: none;
+    border: 1px;
+    border-color: var(--b);
+}
+
+button#back:hover {
+    background: none;
+    border: 1px;
+    border-color: var(--b);
+}
+
+title {
+    visibility: hidden;
+}
+
+footer {
+    position: relative; /* Set the footer to a relative position */
+    bottom: 0; /* Align the footer to the bottom of its container (body) */
+    left: 0;
 }
 
 .text {
@@ -42,4 +58,9 @@
     align-items: center;
     alignment-baseline: center;
     align-self: center;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
 }

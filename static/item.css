@@ -1,0 +1,82 @@
+/* Item page container */
+.item-page {
+  display: flex;
+  padding: 5vw;
+  width: 100%;
+}
+
+/* Item image */
+img.item_img.gradient {
+  width: min(40vw, 400px);
+  height: min(50vw, 500px);
+  padding: 0;
+  border-radius: 10px;
+}
+
+/* Item details */
+.item-details {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  margin-right: 10vw;
+  margin-left: 5vw;
+}
+
+/* Item name */
+.item-name {
+  font-size: 28px;
+}
+
+/* Item price */
+.item-price {
+  font-size: 24px;
+}
+
+
+/* Size selection */
+.size-selection {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  alignment: center;
+}
+
+.size-selection label {
+  padding-top: 5px;
+  padding-right: 2rem;
+}
+
+.size-selection select {
+  background-color: var(--bp);
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.quantity input {
+  width: 1rem;
+  text-align: center;
+}
+
+.quantity button gradient{
+  padding: 5px 5px;
+  /*margin: 0 5px;*/
+}
+
+/* Add to cart button */
+button.important-button.gradient {
+  width: 10rem;
+}
+
+.description {
+  font-size: medium;
+
+}
+
+

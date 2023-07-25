@@ -1,12 +1,13 @@
+<link rel="stylesheet" type="text/css" href="../static/header.css">
 <header>
-    <div class="search-bar">
-
-        <div class="search-bar gradient">
-            <label>
-                <input type="text" class="search-input " placeholder="Search...">
-            </label>
-            <img class="search-btn" src="../static/images/close.svg" alt="close">
-            <img class="search-btn" src="../static/images/search.svg" alt="search">
-        </div>
+    <img id="home" class="gradient" src="../static/images/home.svg" onclick="switchMain()" alt="search">
+    <p class="gradient" onclick="switchCategory()">Categories</p>
+    <div class="gradient search-row">
+        <input name="search_input" type="text" class="search-input" placeholder="Search...">
+        <img id="clear" src="../static/images/close.svg" alt="close">
     </div>
+    <img id="search" class="search-btn gradient" src="../static/images/search.svg" onclick="switchSearch()" alt="search">
+    <img id="profile" class="gradient" src="../static/images/profile.svg" alt="search" >
+    <img id="orders" class="gradient" src="../static/images/box.svg" alt="search">
+    <img id="cart" class="gradient" src="../static/images/cart.svg" alt="search">
 </header>

@@ -25,7 +25,21 @@ db_config = {
 # # Логгер для ошибок
 # error_logger = logging.getLogger('errors')
 # error_logger.setLevel(logging.ERROR)
+@app.route('/')
+def main():
+    return render_template('main.html')
 
+@app.route('/category')
+def cathegory():
+    return render_template('category.html')
+
+@app.route('/item')
+def item():
+    return render_template('item.html')
+
+@app.route('/reset')
+def reset():
+    return render_template('reset.html')
 
 @app.route('/login')
 def index():
@@ -60,12 +74,14 @@ def login():
 
 @app.route('/search')
 def get_dress():
-    data = request.get_json()
+    # data = request.get_json()
     cursor = connection.cursor()
     queue = "select title, collection, source, price from dresses"
     cursor.execute(queue)
     result = list(cursor.fetchone())
     print(result)
+    cursor.close()
+    return render_template('search.html')
 
 
 if __name__ == '__main__':

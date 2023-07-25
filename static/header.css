@@ -1,0 +1,50 @@
+header {
+    display: flex;
+    justify-content: center;
+}
+
+p.gradient{
+    font-weight: normal;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+}
+
+img.gradient.search-btn{
+    display: flex;
+    margin-left: 0.2rem;
+    margin-right: 5rem;
+}
+
+img.gradient{
+    display: flex;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+}
+
+.gradient.search-row{
+    display: flex;
+    margin-right: 0;
+    margin-left:0;
+}
+
+.search-input {
+    text-align: left;
+    padding: 0 1rem;
+    width: calc(100% - 40px);
+}
+
+.search-row {
+    flex: 0.7;
+}
+
+img {
+    border: none;
+    height: 30px;
+    width: 30px;
+}
+
+.search-btn{
+    width: 30px;
+}

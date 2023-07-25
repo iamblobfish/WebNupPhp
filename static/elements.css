@@ -3,6 +3,7 @@
     cursor: pointer;
     padding: 0.5rem;
     margin: 1.5rem auto;
+    text-align: center;
 }
 
 .important-button:hover {
@@ -27,9 +28,11 @@
     margin: 1.5rem auto;
     border-radius: 10px;
     padding: 0.5rem 1rem;
-    background: linear-gradient(rgb(21,13,64), rgb(21,13,64)) padding-box,
+    background: linear-gradient(var(--bp), var(--bp)) padding-box,
     linear-gradient(45deg, var(--b), var(--p)) border-box;
     border: 2px solid transparent;
+    text-align: center;
+    justify-content: center;
 }
 
 input {
@@ -38,4 +41,42 @@ input {
     border:none;
     outline: none;
     text-align: left;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2vw;
+    padding: 20px;
+}
+
+.item {
+    position: relative;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    display: block;
+
+}
+
+img.item{
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 20vw;
+    height: 20vw;
+    background: linear-gradient(0deg, var(--bp), var(--p));;
+    border-radius: 50%;
+    border: none;
+}
+
+p {
+    font-weight: bold;
+}
+
+.name {
+    margin: 10px 0;
 }

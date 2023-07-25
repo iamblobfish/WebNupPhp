@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/main.css">
+    <link rel="stylesheet" type="text/css" href="../static/elements.css">
+    <link rel="stylesheet" type="text/css" href="../static/item.css">
+    <title>MainPage</title>
+</head>
+<body>
+
+<!--Background-->
+
+{% include "header.html" %}
+
+
+<div class="item-page">
+    <img class='item_img gradient' src="../static/images/new1.webp" alt="Product Image">
+    <div class="item-details">
+        <h1 class="item-name">Product Name</h1>
+        <p class="item-price">$99.99</p>
+        <div class="size-selection">
+            <label for="size gradient">Size:</label>
+            <select id="size gradient">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+        </div>
+
+        <button class="important-button gradient">Add to Cart</button>
+
+        <div class="item-description">
+            <h2>Description</h2>
+            <p class="description">Collection: Collection1</p>
+
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec dapibus risus. Nullam eu ipsum id purus
+                venenatis venenatis in a turpis. Etiam rhoncus tortor justo.</p>
+        </div>
+    </div>
+</div>
+
+
+{% include "footer.html" %}
+
+<!--<script src="../static/js/header_footer.js"></script>-->
+<script src="../static/header.js"></script>
+<script src="../static/item.js"></script>
+</body>
+</html>
+
