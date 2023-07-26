@@ -14,11 +14,11 @@
 
     {% for item in items %}
 
-    <div id={{item.id}} class="item" tag="search">
+    <div id={{item.id}}  class="item" tag="search">
         <img src="{{item.src}}" class="img" alt="Autumn Dress">
         <p>${{item.price}}</p>
         <p>{{ item.title }}</p>
-        <button id="buy" data_id="{{item.id}}" class="important-button gradient">Buy</button>
+        <button id="buy"  class="important-button gradient">Buy</button>
     </div>
 
     {% endfor %}
