@@ -1,8 +1,17 @@
 // JavaScript for the item page interactivity
-const item = document.getElementsByClassName('item').item(0);
-console.log(item.id)
+const itemElements = document.getElementsByClassName("item");
 
-// Handle quantity decrease button click
-item.addEventListener('click',  () => {
-    window.location.href = '/item'
-});
+
+// Loop through the elements and extract their ids
+for (let i = 0; i < itemElements.length; i++) {
+    const itemId = itemElements[i].id;
+    if (itemId) {
+        const item = document.getElementById(itemId);
+        item.addEventListener('click', () => {
+            sessionStorage.setItem('ItemId', itemId)
+            console.log(sessionStorage.getItem('ItemId'))
+            // sessionStorage.removeItem('Search')
+            window.location.href = `/item?id=${encodeURIComponent(itemId)}`
+        });
+    }
+}

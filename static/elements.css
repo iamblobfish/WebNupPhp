@@ -60,12 +60,11 @@ input {
 
 }
 
-img.item{
+img.img{
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 10px;
     width: 20vw;
     height: 20vw;
     background: linear-gradient(0deg, var(--bp), var(--p));;
@@ -98,4 +97,12 @@ p {
     padding-top: 0;
     width: 150px;
     height: 150px;
+}
+
+.cart-grid {
+    display: block;
+}
+
+.cart-grid item img.img{
+    width: 100px;
 }

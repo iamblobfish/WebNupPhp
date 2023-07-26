@@ -3,8 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../static/main.css">
     <link rel="stylesheet" type="text/css" href="../static/elements.css">
-    <link rel="stylesheet" type="text/css" href="../static/search_layout.css">
-     <link rel="stylesheet" type="text/css" href="../static/category.css">
+    <link rel="stylesheet" type="text/css" href="../static/category.css">
     <title>SearchPage</title>
 </head>
 <body>
@@ -12,43 +11,25 @@
 
 {% include "header.html" %}
 
-<h1>Categories</h1>
-    <div class="categories-grid">
-        <div class="category">
-            <img src="category1.jpg" alt="Category 1">
-            <h2>Category 1</h2>
-            <p>Description of Category 1.</p>
-        </div>
-        <div class="category">
-            <img src="category2.jpg" alt="Category 2">
-            <h2>Category 2</h2>
-            <p>Description of Category 2.</p>
-        </div>
+<h1>Collections</h1>
+<div class="categories-grid">
+    {% for item in items %}
 
-        <div class="category">
-            <img src="category2.jpg" alt="Category 2">
-            <h2>Category 2</h2>
-            <p>Description of Category 2.</p>
-        </div>
+    <div id={{item.collection}} class="items collections">
+        <h2 class="item-name">{{item.collection}}</h2>
+        <img src="{{item.src}}" class="img" alt="../static/images/default.png">
 
-        <div class="category">
-            <img src="category2.jpg" alt="Category 2">
-            <h2>Category 2</h2>
-            <p>Description of Category 2.</p>
-        </div>
-
-        <div class="category">
-            <img src="category2.jpg" alt="Category 2">
-            <h2>Category 2</h2>
-            <p>Description of Category 2.</p>
-        </div>
-        <!-- Add more categories as needed -->
     </div>
+
+    {% endfor %}
+
+</div>
 
 {% include "footer.html" %}
 
 <!--<script src="../static/get_dress.js"></script>-->
 <script src="../static/header.js"></script>
+<script src="../static/category.js"></script>
 </body>
 </html>
 

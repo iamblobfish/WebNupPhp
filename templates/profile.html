@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/main.css">
+    <link rel="stylesheet" type="text/css" href="../static/elements.css">
+     <link rel="stylesheet" type="text/css" href="../static/profile.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="profile">
+    <img id="profileImage" alt="Profile Image">
+    <h1 id="fullName">John Doe</h1>
+    <p id="email">john.doe@example.com</p>
+    <p id="phone">+1 123-456-7890</p>
+    <button id="editButton">Edit</button>
+    <button id="deleteButton">Delete Account</button>
+    <div class="address">
+        <h2>Address</h2>
+        <p>123 Main Street</p>
+        <p>City, State ZIP</p>
+        <button id="manageAddressButton">Manage Address</button>
+    </div>
+</div>
+
+</body>
+{% include "footer.html" %}
+
+</html>

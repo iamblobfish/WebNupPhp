@@ -3,8 +3,6 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../static/main.css">
     <link rel="stylesheet" type="text/css" href="../static/elements.css">
-
-    <link rel="stylesheet" type="text/css" href="../static/search_layout.css">
     <title>SearchPage</title>
 </head>
 <body>
@@ -13,72 +11,24 @@
 {% include "header.html" %}
 
 <div class="catalog-grid">
-    <!-- Catalog items -->
-    <div class="item">
-        <img src="../static/images/autumn.jpg" class="item img" alt="Autumn Dress">
-        <p>$25.99</p>
-        <p>Product Name 1</p>
-        <button class="important-button gradient">Buy</button>
+
+    {% for item in items %}
+
+    <div id={{item.id}} class="item" tag="search">
+        <img src="{{item.src}}" class="img" alt="Autumn Dress">
+        <p>${{item.price}}</p>
+        <p>{{ item.title }}</p>
+        <button id="buy" data_id="{{item.id}}" class="important-button gradient">Buy</button>
     </div>
 
-    <div class="item">
-        <img src="../static/images/spring.jpg" class="item img" alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
-
-    <div class="item">
-        <img src="../static/images/winter.jpg" class="item img" alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
-
-    <div class="item">
-        <img src="../static/images/new6.webp" class="item img" alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
-
-    <div class="item">
-        <img src="../static/images/new1.webp" class="item img" alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
-
-    <div class="item">
-        <img src="../static/images/new2.jpeg" class="item img" alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
-
-    <div class="item">
-        <img src="../static/images/new5.webp" class="item img" alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
-
-    <div class="item">
-        <img src="../static/images/ceber.png" class="item img" alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
-
-
-    <!-- Add more items as needed -->
+    {% endfor %}
 
 </div>
 
 {% include "footer.html" %}
 
-<!--<script src="../static/get_dress.js"></script>-->
 <script src="../static/header.js"></script>
+<script src="../static/catalog.js"></script>
 
 </body>
 </html>

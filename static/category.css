@@ -1,24 +1,22 @@
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
     justify-items: center;
-    margin: 0 auto;
+    margin: 10px auto;
     max-width: 1200px;
 }
 
-.category {
-    padding: 20px;
+.items.collections {
     text-align: center;
 }
 
-.category img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 5px;
+.items.collections img{
+    width: 250px;
+    height: 250px;
 }
+
 
 
 

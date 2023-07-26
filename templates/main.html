@@ -14,69 +14,40 @@
 <h1>Newest</h1>
 
 <div class="catalog-grid">
-    <!-- Catalog items -->
-    <div id=1 class="item">
-        <img src="../static/images/autumn.jpg" class="item " alt="Autumn Dress">
-        <p>$25.99</p>
-        <p>Product Name 1</p>
-        <button class="important-button gradient">Buy</button>
+    {% for item in items[0] %}
+    <div id={{item.id}} class="item" tag="search">
+        <img src="{{item.src}}" class="img" alt="Autumn Dress">
+        <p>${{item.price}}</p>
+        <p>{{ item.title }}</p>
+        <button id="buy" data_id="{{item.id}}" class="important-button gradient">Buy</button>
     </div>
+    {% endfor %}
 
-    <div class="item">
-        <img src="../static/images/spring.jpg" class="item " alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
-
-    <div class="item">
-        <img src="../static/images/winter.jpg" class="item " alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
 </div>
 <h1>Sales</h1>
 <div class="catalog-grid">
 
-    <div class="item">
-        <img src="../static/images/new6.webp" class="item " alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
+    {% for item in items[1] %}
+    <div id={{item.id}} class="item" tag="search">
+        <img src="{{item.src}}" class="img" alt="Autumn Dress">
+        <p>${{item.price}}</p>
+        <p>{{ item.title }}</p>
+        <button id="buy" data_id="{{item.id}}" class="important-button gradient">Buy</button>
     </div>
-
-    <div class="item">
-        <img src="../static/images/new1.webp" class="item" alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
-
-    <div class="item">
-        <img src="../static/images/new2.jpeg" class="item" alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
+    {% endfor %}
 </div>
-<h1>New Collection</h1>
+<h1>Latest Collection</h1>
 
 <div class="catalog-grid">
 
-    <div class="item">
-        <img src="../static/images/new5.webp" class="item img" alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
+    {% for item in items[2] %}
+    <div id={{item.id}} class="item" tag="search">
+        <img src="{{item.src}}" class="img" alt="Autumn Dress">
+        <p>${{item.price}}</p>
+        <p>{{ item.title }}</p>
+        <button id="buy" data_id="{{item.id}}" class="important-button gradient">Buy</button>
     </div>
-
-    <div class="item">
-        <img src="../static/images/ceber.png" class="item img" alt="Autumn Dress">
-        <p class="price">$25.99</p>
-        <p class="name">Product Name 1</p>
-        <button class="important-button">Buy</button>
-    </div>
+    {% endfor %}
 
 
     <!-- Add more items as needed -->
