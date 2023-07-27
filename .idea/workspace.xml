@@ -4,13 +4,93 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01595992-ca53-41f2-92b4-8240c7c8e10b" name="Changes" comment="update multiple 26.07 1">
+    <list default="true" id="01595992-ca53-41f2-92b4-8240c7c8e10b" name="Changes" comment="update to php">
+      <change afterPath="$PROJECT_DIR$/includes/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/some.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/some.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/catalog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/category.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/category.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/cathegory.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cathegory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/check_login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/check_login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/elements.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/elements.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/get_dress.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/get_dress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/get_item.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/get_item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/CheapFonFinal.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/CheapFonFinal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/a-haute-couture-fashion-line-with-garments-made-of-smoke-v0-e4dabj2kujh91.png.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/a-haute-couture-fashion-line-with-garments-made-of-smoke-v0-e4dabj2kujh91.png.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/autumn.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/autumn.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/beach.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/beach.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/beton.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/beton.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/blask_rose.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/blask_rose.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/border.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/border.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/box.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/box.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/buterfly2.jpg.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/buterfly2.jpg.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/cart.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/cart.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/ceber.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ceber.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/close.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/close.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/cvarc.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/cvarc.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/dress1.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/dress1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/egypt.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/egypt.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/filter.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/filter.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/fire.png.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/fire.png.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/fish.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/fish.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/flower1.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/flower1.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/flower2.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/flower2.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/flower3.jpg.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/flower3.jpg.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/home.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/home.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/images-4.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/images-4.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/labr.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/labr.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/middle.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/middle.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/new1.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/new1.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/new2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/new2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/new4.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/new4.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/new5.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/new5.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/new6.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/new6.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/nwe.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/nwe.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/profile.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/profile.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/rainbow-smoke.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/rainbow-smoke.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/red_smoke.webp" beforeDir="false" afterPath="$PROJECT_DIR$/images/red_smoke.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/search.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/search.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/sign-in.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/sign-in.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/spring.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/spring.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/trash.svg" beforeDir="false" afterPath="$PROJECT_DIR$/images/trash.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/winter.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/winter.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/reset.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/reset.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main_php.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/main_php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/reset.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="ComposerSettings">
     <execution />
@@ -38,24 +118,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/sashafedorova/NUP/web_at/WebNUP/templates&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/sashafedorova/NUP/web_at/WebNupPhp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages" />
+      <recent name="$PROJECT_DIR$/css" />
+      <recent name="$PROJECT_DIR$/js" />
+      <recent name="$PROJECT_DIR$/includes" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -115,6 +203,7 @@
       <workItem from="1690319582489" duration="2542000" />
       <workItem from="1690384750728" duration="19869000" />
       <workItem from="1690479432491" duration="624000" />
+      <workItem from="1690480372855" duration="3705000" />
     </task>
     <task id="LOCAL-00001" summary="update everything">
       <created>1690400128791</created>
@@ -130,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690400164115</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update to php">
+      <option name="closed" value="true" />
+      <created>1690480444192</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1690480444192</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +247,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update everything" />
     <MESSAGE value="update everything2" />
-    <option name="LAST_COMMIT_MESSAGE" value="update everything2" />
+    <MESSAGE value="update to php" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to php" />
   </component>
 </project>

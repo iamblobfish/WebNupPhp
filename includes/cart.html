@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-    <link rel="stylesheet" type="text/css" href="../static/main.css">
-    <link rel="stylesheet" type="text/css" href="../static/elements.css">
-    <link rel="stylesheet" type="text/css" href="../static/item.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/elements.css">
+    <link rel="stylesheet" type="text/css" href="../css/item.css">
     <title>SearchPage</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
         <div class="item-details cart">
             <h1 class="item-name">{{ item.title }}</h1>
             <p class="item-price">${{item.price}}</p>
-            <img id="buy" src="../static/images/trash.svg" class="gradient">
+            <img id="buy" src="../images/trash.svg" class="gradient">
         </div>
     </div>
 
@@ -36,8 +36,8 @@
 
 {% include "footer.html" %}
 
-<script src="../static/header.js"></script>
-<script src="../static/cart.js"></script>
+<script src="../js/header.js"></script>
+<script src="../js/cart.js"></script>
 
 </body>
 </html>

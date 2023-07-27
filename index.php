@@ -1,10 +1,28 @@
 <?php
+// index.php
+const BASE_PATH = __DIR__;
 
-// Define the base URL of the site
-$base_url = "http://dresses.com"; // Replace with your domain name
+const INCLUDES_PATH = BASE_PATH . '/includes';
 
-// Get the requested URL
-$request_url = $_SERVER['REQUEST_URI'];
+// Function to include header and footer files
+function includeHeader()
+{
+    include INCLUDES_PATH . '/header.html';
+}
+
+// Function to include the main content file (main.html)
+function includeContent($page_name)
+{
+    include INCLUDES_PATH . '/' .$page_name;
+}
+
+// Function to include footer file
+function includeFooter()
+{
+    include INCLUDES_PATH . '/footer.html';
+}
+
+$request_url = '/';
 
 // Remove the query string from the URL if present
 if (($pos = strpos($request_url, '?')) !== false) {
@@ -13,9 +31,9 @@ if (($pos = strpos($request_url, '?')) !== false) {
 
 // Define the routes for different pages
 $routes = array(
-    '/' => 'main_php.html',              // The main homepage
-//    '/about' => 'about.html',        // About page
-//    '/contact' => 'contact.html',    // Contact page
+    '/' => 'main.html',              // The main homepage
+    '/about' => 'about.html',        // About page
+    '/contact' => 'contact.html',    // Contact page
     // Add more routes for additional pages as needed
 );
 
@@ -27,11 +45,10 @@ if (!file_exists($page)) {
     $page = '404.html';
 }
 
-// Include the header HTML
-include('templates/header.html');
 
-// Include the requested page HTML
-include($page);
+includeHeader();
+includeContent('main_php.html');
+includeFooter();
 
-// Include the footer HTML
-include('templates/footer.html');
+
+
