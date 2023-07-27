@@ -1,6 +1,7 @@
 # Default ignored files
 /shelf/
-/.idea/*
+/.idea/
+.DS_Store
 *.DS_Store
 venv
 # Editor-based HTTP Client requests
