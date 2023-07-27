@@ -100,10 +100,8 @@ p {
 }
 
 .cart-grid {
-    display: block;
-}
+    display: grid;
+    justify-content: center;
 
-.cart-grid item img.img{
-    width: 100px;
 }
 

@@ -13,6 +13,24 @@ img.item_img.gradient {
   border-radius: 10px;
 }
 
+.item-page.cart {
+  flex: 1;
+  width: 100%;
+  height: 20%;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 40px;
+}
+
+
+/* Item image */
+img.item_img.gradient.cart {
+  width: max(20vw, 200px);
+  height: max(25vw, 250px);
+  border-radius: 10px;
+}
+
 /* Item details */
 .item-details {
   display: block;
@@ -21,6 +39,21 @@ img.item_img.gradient {
   margin-top: 20px;
   margin-right: 10vw;
   margin-left: 5vw;
+}
+
+.item-details.cart{
+  text-align: center;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.item-details.cart img{
+  margin: auto;
+}
+
+
+.item-details.cart h1{
+  width: 300px;
 }
 
 /* Item name */

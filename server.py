@@ -139,27 +139,31 @@ def reset():
     return render_template('reset.html')
 
 
-@app.route('/cart', methods=['GET', 'POST'])
+@app.route('/cart', methods=['GET'])
 def cart():
-    data = request.get_json()
-    item_ids = data.data
+    item_ids = request.args.get('ids', '').split(',')
     print(item_ids)
+    if item_ids != ['']:
+        placeholders = ' OR '.join([f"id = %s"]*len(item_ids))
 
-    placeholders = ','.join(['%s'] * len(item_ids))
-    query = f"SELECT id, title, price, src FROM users_info WHERE id IN ({placeholders})"
-    cursor = connection.cursor()
-    cursor.execute(query, item_ids)
-    result = cursor.fetchall()
-    cursor.close()
+        query = f"SELECT id, title, price, src FROM items WHERE {placeholders}"
+        print(query)
+        cursor = connection.cursor()
+        cursor.execute(query, item_ids)
+        result = cursor.fetchall()
+        cursor.close()
 
-    items = [{
-        'id': items_data[0],
-        'title': items_data[1],
-        'price': items_data[2],
-        'src': items_data[3]
-    } for items_data in result]
-
-    return render_template('cart.html', items=items)
+        items = [{
+            'id': items_data[0],
+            'title': items_data[1],
+            'price': items_data[2],
+            'src': items_data[3]
+        } for items_data in result]
+        print("items: ", items)
+        total = sum([items_data[2] for items_data in result])
+        return render_template('cart.html', items=items, item = total)
+    else:
+        return render_template('cart.html', item = 0)
 
 
 @app.route('/login')

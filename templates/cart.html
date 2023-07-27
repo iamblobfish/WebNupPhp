@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../static/main.css">
     <link rel="stylesheet" type="text/css" href="../static/elements.css">
+    <link rel="stylesheet" type="text/css" href="../static/item.css">
     <title>SearchPage</title>
 </head>
 <body>
@@ -14,15 +15,24 @@
 
     {% for item in items %}
 
-    <div id={{item.id}} class="item" tag="search">
-        <img src="{{item.src}}" class="img" alt="Autumn Dress">
-        <p>${{item.price}}</p>
-        <p>{{ item.title }}</p>
+    <div id="{{item.id}}" class="item-page cart">
+        <img class='item_img gradient cart' src="{{item.src}}" alt="Product Image">
+        <div class="item-details cart">
+            <h1 class="item-name">{{ item.title }}</h1>
+            <p class="item-price">${{item.price}}</p>
+            <img id="buy" src="../static/images/trash.svg" class="gradient">
+        </div>
     </div>
 
     {% endfor %}
 
+    <div style="display: flex; justify-content: center;">
+        <h1 class="item-name" style="margin-top:35px;  width: max(30vw, 200px);">Total: {{item}}</h1>
+        <button style="margin: auto " class="important-button gradient">Buy</button>
+    </div>
+
 </div>
+
 
 {% include "footer.html" %}
 

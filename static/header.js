@@ -9,7 +9,8 @@ document.getElementById("clear").addEventListener("click", clear)
 
 
 document.getElementById("cart").addEventListener("click", function (){
-    window.location.href = "/cart"
+    let itemList =JSON.parse(sessionStorage.getItem('itemList'));
+    window.location.href = `/cart?ids=${encodeURIComponent([...new Set(itemList)].toString())}`
 })
 
 
