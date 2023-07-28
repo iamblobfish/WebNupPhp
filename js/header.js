@@ -13,6 +13,14 @@ document.getElementById("cart").addEventListener("click", function (){
     window.location.href = `/cart?ids=${encodeURIComponent([...new Set(itemList)].toString())}`
 })
 
+function switchLogin(){
+    window.location.href = "/login";
+}
+
+function switchProfile(){
+    window.location.href = "/profile";
+}
+
 
 function switchSearch() {
     let searchQuery = document.getElementById('search_input').value;
@@ -35,20 +43,8 @@ function switchCategory() {
 }
 
 // Function to get the global variable from sessionStorage
-function getGlobalVariable() {
-    return sessionStorage.getItem('myGlobalVariable');
-}
-
-const imageElement = document.getElementById("profile");
-let logedin = getGlobalVariable();
 
 document.addEventListener("DOMContentLoaded", function () {
-    if (logedin === "true") {
-        imageElement.src = "../static/images/profile.svg";
-    } else {
-        console.log(logedin)
-        imageElement.src = "../static/images/sign-in.svg";
-    }
     let searchQuery = sessionStorage.getItem('searchQuery');
     console.log("SearchQuery on load: "+ searchQuery)
 
@@ -86,13 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-imageElement.addEventListener("click", function () {
-    if (logedin === "true") {
-        window.location.href = "/profile";
-    } else {
-        window.location.href = "/login";
-    }
-})
+
 
 
 

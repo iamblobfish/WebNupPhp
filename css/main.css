@@ -17,9 +17,10 @@
 }
 
 body {
-    background-image: url(background.png);
-    background-size: 100%;
-    min-height: 100vh;
+    background-image: url("../images/background.png");
+    /*background-size: 100%;*/
+    /*min-height: 100vh;*/
+    /*min-width: 100vw;*/
 }
 
 button#back{
