@@ -11,10 +11,6 @@ $profile = getItemsFromResult($result)[0];
 
 $src = $profile['photo'] ?? "../images/profile.svg";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
-    echo $_POST['name'];
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -30,11 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
 </head>
 <body style="background-image: url(../images/background.png);">
 <?php includeHeader(); ?>
-<form id=profile class="profile">
+<form id=profile class="profile" method="post">
     <div class="block">
         <img id="profileImage" src="<?= $src ?>" class="item" alt="Profile Image">
         <button id="logout" class="important-button gradient" onclick="logOut()" type="button">LogOut</button>
-        <button class="important-button gradient" type="button">Delete Account</button>
+        <button class="important-button gradient" type="button" onclick="deleteProfile(); logOut()">Delete Account</button>
     </div>
     <div class="block">
         <input id="name" name="editable" class="gradient" value="<?= $profile['username'] ?>" disabled>
@@ -46,7 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
         <input id="address" disabled class="gradient" value="Street 1,1, 1">
 
         <button id="edit" class="important-button gradient" type="button" onclick="enable()">Edit</button>
-        <button id="submit"  form=profile class="important-button gradient" type="submit" style="display: none" onclick="enable()">Submit</button>
+        <button id="submit" form=profile class="important-button gradient" type="button" style="display: none"
+                onclick="enable(); postProfile()">Submit
+        </button>
 
 
     </div>
@@ -54,54 +52,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
 </form>
 
 </body>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
+    $name = $_POST['name'];
+    $id = $_SESSION['id'];
+    getQueryResult("UPDATE users.users_info SET username = '$name'  WHERE id = $id;");
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
+    $id = $_SESSION['id'];
+    getQueryResult("DELETE FROM users.users_info  WHERE id = $id;");
+}
+?>
 <?php includeFooter(); ?>
-<script>
-    function enable() {
-        console.log('enable')
-        let btnText = document.getElementById('edit').textContent
-        console.log(btnText)
-        if (btnText === 'Edit') {
-            document.getElementById('edit').textContent = 'Back'
-            document.getElementById('submit').style = "display: flex";
-
-            const itemElements = document.getElementsByName('editable');
-            for (let i = 0; i < itemElements.length; i++) {
-                const itemId = itemElements[i].id;
-                if (itemId) {
-                    document.getElementById(itemId).disabled = false;
-                }
-            }
-        } else {
-            document.getElementById('edit').textContent = 'Edit'
-            document.getElementById('submit').style = "display: none";
-
-            const itemElements = document.getElementsByName('editable');
-            for (let i = 0; i < itemElements.length; i++) {
-                const itemId = itemElements[i].id;
-                if (itemId) {
-                    document.getElementById(itemId).disabled = true;
-                }
-            }
-        }
-
-    }
-
-    function logOut() {
-        $.ajax({
-            url: "index.php",
-            type: "POST",
-            data: {newId: 'a', loggedin: '0'},
-            success: function () {
-                console.log("Session ID updated successfully");
-            },
-            error: function (xhr, status, error) {
-                console.log("Error:", error);
-            }
-        });
-        switchPage('main');
-    }
-
-</script>
-
 
 </html>

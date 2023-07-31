@@ -90,3 +90,65 @@ function buy(total) {
     }
 }
 
+function postProfile(){
+    const formData =
+        {
+            'name': document.getElementById('name').value,
+            'email': document.getElementById('email').value,
+            'phone': document.getElementById('phone').value,
+        }
+    console.log('posted')
+    console.log(formData)
+    $.post('index.php?page=profile', formData, function (response) {
+    });
+    location.reload()
+}
+
+function enable() {
+    let btnText = document.getElementById('edit').textContent
+    if (btnText === 'Edit') {
+        document.getElementById('edit').textContent = 'Back'
+        document.getElementById('submit').style = "display: flex";
+
+        const itemElements = document.getElementsByName('editable');
+        for (let i = 0; i < itemElements.length; i++) {
+            const itemId = itemElements[i].id;
+            if (itemId) {
+                document.getElementById(itemId).disabled = false;
+            }
+        }
+    } else {
+        document.getElementById('edit').textContent = 'Edit'
+        document.getElementById('submit').style = "display: none";
+
+        const itemElements = document.getElementsByName('editable');
+        for (let i = 0; i < itemElements.length; i++) {
+            const itemId = itemElements[i].id;
+            if (itemId) {
+                document.getElementById(itemId).disabled = true;
+            }
+        }
+    }
+
+}
+
+function logOut() {
+    $.ajax({
+        url: "index.php",
+        type: "POST",
+        data: {newId: 'a', loggedin: '0'},
+        success: function () {
+            console.log("Session ID updated successfully");
+        },
+        error: function (xhr, status, error) {
+            console.log("Error:", error);
+        }
+    });
+    switchPage('main');
+}
+
+function deleteProfile(){
+    $.post('index.php?page=profile', {'delete': ""}, function (response) {
+    });
+    location.reload()
+}

@@ -26,6 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy'])) {
     getQueryResult("INSERT INTO users.orders (user_id, ids, total) VALUES ($user_id,'$buy', $tot)");
 }
 
+$p = ($_SERVER['REQUEST_METHOD']);
+echo "$p";
+
 ?>
 
 
@@ -76,7 +79,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy'])) {
     </div>
 
 </div>
-
 
 <?php includeFooter(); ?>
 

@@ -28,7 +28,7 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == "1") {
     <img id="search" class="search-btn gradient" src="../images/search.svg"
          onclick="switchPage('search&search='+ (document.getElementById('search_input').value ?? ''))"
          alt="search">
-    <img id="profile" class="gradient" src="<?php echo $icon_path; ?>" onclick="<?php echo $profile; ?>" alt="profile">
+    <img class="gradient" src="<?php echo $icon_path; ?>" onclick="<?php echo $profile; ?>" alt="profile">
 
     <img id="orders" class="gradient" src="../images/box.svg" alt="search" onclick="<?=$orders?>">
     <img id="cart" class="gradient" src="../images/cart.svg" alt="search" onclick="switchPage('cart')">
