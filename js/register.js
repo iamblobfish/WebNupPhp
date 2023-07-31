@@ -5,7 +5,7 @@ backBtn.addEventListener("click", function () {
 
 let continueBtn = document.getElementById('guestMode');
 continueBtn.addEventListener("click", function () {
-    window.location.href = "/";
+    switchPage("");
 })
 
 function submit() {
@@ -44,3 +44,14 @@ function submit() {
 
 let loginBtn = document.getElementById('login');
 loginBtn.addEventListener("click", submit)
+
+document.getElementById("login").addEventListener("click", function() {
+    let password = document.getElementsByName("password").values()[0];
+    let password_rep = document.getElementsByName("password_rep").values()[0];
+    let passwordRepError = document.getElementById("passwordRepError");
+    passwordRepError.innerHTML = "";
+
+    if (password !== password_rep) {
+        passwordRepError.innerHTML = "Passwords do not match";
+    }
+});

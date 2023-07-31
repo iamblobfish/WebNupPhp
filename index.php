@@ -3,61 +3,139 @@
 const BASE_PATH = __DIR__;
 const INCLUDES_PATH = BASE_PATH . '/includes';
 
-$request_url = '/';
-
-$routes = array(
-    '/' => 'main_php.php'
-);
 
 function includeHeader(): void
 {
     include 'pages/header.php';
 }
+
+function includeWarning(): void
+{
+    include 'includes/warning.html';
+}
+
 function includeFooter(): void
 {
-    include INCLUDES_PATH . '/footer.html';
+    include INCLUDES_PATH . '/footer.php';
 }
 
-$connection = new mysqli('localhost', 'root', '1029384756', 'users');
-if ($connection->connect_error) {
-    die("Error database connection: " . $connection->connect_error);
+function getQueryResult($query, $add = null)
+{
+    $connection = new mysqli('localhost', 'root', '1029384756', 'users');
+    if ($connection->connect_error) {
+        die("Error database connection: " . $connection->connect_error);
+    }
+    if ($add == null) {
+        $result = $connection->query($query);
+    } else {
+        // Create a prepared statement
+        $stmt = $connection->prepare($query);
+        $stmt->bind_param('s', $add);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    }
+    $connection->close();
+    return $result;
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // Fetch data from the database
-    $query = "SELECT id, title, price, src FROM items";
-    $result = $connection->query($query);
-
-    // Check if there are any records
+function getItemsFromResult($result): array
+{
     if ($result->num_rows > 0) {
-        // Fetch the data and store it in an array
         $items = [];
         while ($row = $result->fetch_assoc()) {
             $items[] = $row;
         }
     }
+    return $items ?? [];
 }
 
-$connection->close();
+// Custom error handler function
+function customErrorHandler($errno, $errstr, $errfile, $errline)
+{
+    if ($errno === 404) {
+        // Handle 404 error here
+        echo '<h1>Page not found, sorry :)</h1>';
+        include 'includes/404.html';
+    } else {
+        echo "Caught error: " . $errstr->getMessage();
+        include 'includes/error.html';;
+    }
+}
+
+session_start();
 ?>
 
 <?php
 
-session_start();
-$_SESSION['logged_in'] = "1";
+$page = $_GET['page'] ?? '';
 
-$request_uri = $_SERVER['REQUEST_URI'];
-$pos = stripos($request_uri, '?');
-if ($pos !== false) {
-    $request_uri = substr($request_uri, 0, $pos);
+
+$previousPage = $_SERVER['HTTP_REFERER']['page'] ?? 'N/A';
+// Check which page is requested and include the corresponding PHP file
+try {
+    switch ($page) {
+        case '':
+        case 'main':
+
+            include 'pages/main_php.php';
+            break;
+        case 'profile':
+            if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == "1") {
+                include 'pages/profile.php';
+            } else {
+                echo '<h1>Please Log In to open profile :)</h1>';
+                echo "<span class='text' style='text-align: center' onclick=switchPage('login')>Log In</span>";
+                include 'includes/404.html';
+            }
+            break;
+        case 'login':
+            include 'pages/login.php';
+            break;
+        case 'category':
+            include 'pages/category.php';
+            break;
+        case 'reset':
+            include 'pages/reset.php';
+            break;
+        case 'register':
+            include 'pages/register.php';
+            break;
+        case 'check':
+            include 'pages/check.php';
+            break;
+        case 'search':
+            include 'pages/search.php';
+            break;
+        case 'cart':
+            include 'pages/cart.php';
+            break;
+        case 'orders':
+            include 'pages/orders.php';
+            break;
+        case 'item':
+            if (isset($_GET['item']) && $_GET['item'] != "") {
+                include 'pages/item.php';
+            } else {
+                echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
+                include 'includes/404.html';
+            }
+            break;
+        default:
+            echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
+            include 'includes/404.html';
+            break;
+    }
+} catch (Exception $e) {
+    // Handle the exception here
+    echo "Caught exception: " . $e->getMessage();
+    include 'includes/error.html';
+} catch (Error $e) {
+    // Handle the error here
+    echo "Caught error: " . $e->getMessage();
+    include 'includes/error.html';
 }
 
-if ($request_uri === '/WebNupPhp/' || $request_uri === '/WebNupPhp/index.php') {
-//    header('Location: ' . $request_uri); // Perform the HTTP redirect
-    include 'pages/main_php.php';
-} else {
-    include INCLUDES_PATH . '/404.html';
-}
+
 ?>
 
 

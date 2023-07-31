@@ -41,6 +41,11 @@ title {
     visibility: hidden;
 }
 
+script {
+    display: none;
+}
+
+
 footer {
     position: relative; /* Set the footer to a relative position */
     bottom: 0; /* Align the footer to the bottom of its container (body) */
@@ -65,4 +70,33 @@ footer {
 h1 {
     font-size: 2rem;
     text-align: center;
+}
+title{
+    display: none;
+}
+
+table {
+    width: 100%;
+
+}
+
+th, td {
+    border: var(--b) 2px;
+    padding: 8px;
+    text-align: center;
+}
+
+tr {
+    display: flex;
+}
+th:nth-child(1), td:nth-child(1) {
+    width: 10rem;
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 20rem;
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: 15rem;
 }

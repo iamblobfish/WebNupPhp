@@ -8,7 +8,7 @@
     <title>ResetPassword</title>
 
 </head>
-<body>
+<body style = "background-image: url(../images/background.png);">
 <!--Background-->
 
 <!--Content-->
@@ -26,7 +26,7 @@
     </div>
 </div>
 
-{% include "footer.html" %}
+<?php includeFooter();?>
 
 <script src="../js/reset.js">
 

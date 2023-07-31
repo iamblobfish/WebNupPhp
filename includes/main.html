@@ -3,13 +3,14 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" type="text/css" href="../css/elements.css">
+    <link rel="stylesheet" href="/css/header.css">
     <title>MainPage</title>
 </head>
-<body>
+<body style = "background-image: url(../images/background.png);">
 
 <!--Background-->
 
-{% include "header.html" %}
+<?php includeHeader(); ?>
 
 <h1>Newest</h1>
 
@@ -21,7 +22,7 @@
         <p>{{ item.title }}</p>
         <button id="buy"  class="important-button gradient">Buy</button>
     </div>
-    {% endfor %}
+    <?php endforeach; ?>
 
 </div>
 <h1>Sales</h1>
@@ -34,7 +35,7 @@
         <p>{{ item.title }}</p>
         <button id="buy"  class="important-button gradient">Buy</button>
     </div>
-    {% endfor %}
+    <?php endforeach; ?>
 </div>
 <h1>Latest Collection</h1>
 
@@ -47,13 +48,13 @@
         <p>{{ item.title }}</p>
         <button id="buy"  class="important-button gradient">Buy</button>
     </div>
-    {% endfor %}
+    <?php endforeach; ?>
 
 
     <!-- Add more items as needed -->
 </div>
 
-{% include "footer.html" %}
+<?php includeFooter();?>
 
 <script src="../js/header.js"></script>
 <script type="module" src="../js/catalog.js"></script>

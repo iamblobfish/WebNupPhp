@@ -6,5 +6,5 @@ function includeHeader(): void
 }
 function includeFooter(): void
 {
-    include INCLUDES_PATH . '/footer.html';
+    include INCLUDES_PATH . '/footer.php';
 }

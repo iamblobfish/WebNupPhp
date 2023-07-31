@@ -15,7 +15,7 @@ function onLog(message) {
         } else {
             if (message === 'Success!') {
                 setGlobalVariable("true");
-                window.location.href = '/';
+                switchPage("");
             }
         }
     }
@@ -50,7 +50,7 @@ loginBtn.addEventListener("click", checkLogin)
 
 let forgetBtn = document.getElementById('fgtPassword');
 forgetBtn.addEventListener("click", function (){
-     window.location.href = '/reset';
+     switchPage("reset");
 })
 
 let backBtn = document.getElementById('back');
@@ -60,10 +60,10 @@ backBtn.addEventListener("click", function (){
 
 let continueBtn = document.getElementById('guestMode');
 continueBtn.addEventListener("click", function (){
-     window.location.href = "/";
+     switchPage("");
 })
 
 let registerBtn = document.getElementById('register');
 registerBtn.addEventListener("click", function (){
-      window.location.href = "/register";
+    switchPage("register");
 })

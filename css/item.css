@@ -26,8 +26,8 @@ img.item_img.gradient {
 
 /* Item image */
 img.item_img.gradient.cart {
-  width: max(20vw, 200px);
-  height: max(25vw, 250px);
+  width: max(15vw, 130px);
+  height: max(15vw, 180px);
   border-radius: 10px;
 }
 
