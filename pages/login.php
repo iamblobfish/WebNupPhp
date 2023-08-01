@@ -30,35 +30,38 @@
 </div>
 <?php includeWarning(); ?>
 <?php includeFooter(); ?>
-<script type="module" src="../js/main.js"></script>
 <?php
 
 // Function to get the hashed password from the database based on the email
 function is_ok($email, $password)
 {
-    $result = getQueryResult("SELECT id, hashed_password FROM users_info WHERE email = ?", $email);
+    $result = getQueryResult("SELECT id, hashed_password, admin FROM users_info WHERE email = ?", $email);
 
     $enteredPassword = hash('sha512', $password);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $hashed_password = $row['hashed_password'];
         $is_ok = ($hashed_password == $enteredPassword);
+        $admin = $row['admin'];
+        if ($admin == 1) {
+            $_SESSION["admin"] = "1";
+        } else $_SESSION["admin"] = "0";
         return $is_ok ? $row['id'] : "Wrong Password";
     } else return "User not found";
 }
 
 // Check if the login form is submitted
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["password"])) {
 
     $email = $_POST["email"];
     $password = $_POST["password"];
     if ($email and $password){
         $is_ok = is_ok($email, $password);
-        echo "<script>console.log($is_ok)</script>";
         if (is_numeric($is_ok)) {
             $_SESSION["logged_in"] = "1";
             $_SESSION["id"] = $is_ok;
             echo "<script>switchPage('main');</script>";
+
         } else {
             echo "<script>showCustomAlert('$is_ok');</script>";
         }

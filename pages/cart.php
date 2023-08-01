@@ -23,11 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buy'])) {
     $_SESSION['buy'] = $_POST['buy'];
     $tot = $_POST['total'];
     $user_id = $_SESSION['id'];
-    getQueryResult("INSERT INTO users.orders (user_id, ids, total) VALUES ($user_id,'$buy', $tot)");
+    $n = $_POST['names'];
+    getQueryResult("INSERT INTO users.orders (user_id, ids, total) VALUES ($user_id, '$n', $tot)");
 }
-
-$p = ($_SERVER['REQUEST_METHOD']);
-echo "$p";
 
 ?>
 
@@ -41,6 +39,7 @@ echo "$p";
     if (isset($_SESSION['elements'])) {
         $ids = explode(',', $_SESSION['elements']);
     } else $ids = array();
+    $names = array();
 
 
     foreach ($ids as $id) {
@@ -49,9 +48,11 @@ echo "$p";
                 "SELECT id, title, price, src, sale FROM users.items WHERE id = '$id'");
             $itm = getItemsFromResult($result)[0];
             $items[] = $itm;
+            $names[] = $itm['title'];
             $total += $itm['price'];
         }
     }
+    $names = implode(", ", $names);
 
     foreach ($items as $item): ?>
 
@@ -70,11 +71,7 @@ echo "$p";
     <div style="display: flex; justify-content: center;">
         <h1 class="item-name" style="margin-top:35px;  width: max(30vw, 200px);">Total: <?= $total ?></h1>
         <button style="margin: auto " class="important-button gradient"
-                onclick="if (<?= $_SESSION['logged_in'] ?> === 1) {
-                        if (<?= $total ?> !== 0) buy(<?= $total ?>)
-                        else showCustomAlert('Nothing to buy :)')
-                        }
-                        else showCustomAlert('Log In to buy :)') "
+                onclick="buy_btn()"
         >Buy</button>
     </div>
 
@@ -84,7 +81,17 @@ echo "$p";
 
 
 <script src="../js/header.js"></script>
-
+<script>
+    function buy_btn(){
+        if (<?= $_SESSION['logged_in'] ?> === 1) {
+            if (<?= $total ?> !== 0) {
+                buy(<?= $total ?> , '<?=$names?>')
+            }
+            else showCustomAlert('Nothing to buy :)')
+        }
+        else showCustomAlert('Log In to buy :)')
+    }
+</script>
 
 </body>
 </html>

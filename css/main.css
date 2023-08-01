@@ -75,28 +75,33 @@ title{
     display: none;
 }
 
-table {
+table.admin {
     width: 100%;
-
+    border-collapse: collapse;
+    border-radius: 10px;
 }
 
-th, td {
-    border: var(--b) 2px;
+.admin th,.admin td {
+    border: 1px solid rgba(0, 255,255,50%  ); /* Add border to th and td elements */
     padding: 8px;
     text-align: center;
+    min-height: 1.5rem;
+
 }
 
 tr {
     display: flex;
 }
-th:nth-child(1), td:nth-child(1) {
-    width: 10rem;
+
+style {
+    display: none;
 }
 
-th:nth-child(2), td:nth-child(2) {
-    width: 20rem;
+label{
+    margin: auto auto auto auto;
+    text-align: right;
 }
 
-th:nth-child(3), td:nth-child(3) {
-    width: 15rem;
+datalist {
+    height: 2rem;
 }

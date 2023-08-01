@@ -7,48 +7,62 @@
     <link rel="stylesheet" type="text/css" href="../css/item.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title> Cart </title>
-
     <style>
         th:nth-child(1), td:nth-child(1) {
-            width: 5rem;
+            width: 10rem;
         }
 
         th:nth-child(2), td:nth-child(2) {
-            width: 25rem;
+            width: 10rem;
         }
 
         th:nth-child(3), td:nth-child(3) {
-            width: 10rem;
+            width: 20rem;
+        }
+
+        th:nth-child(4), td:nth-child(4) {
+            width: 15rem;
+        }
+        th:nth-child(5), td:nth-child(5) {
+            border: none;
         }
     </style>
 
 </head>
 <body style="background-image: url(../images/background.png);">
 
-<?php includeHeader(); ?>
+<?php includeAdminHeader(); ?>
 
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
+    $id = $_POST['delete'];
+    getQueryResult("DELETE FROM users.orders  WHERE id = $id");
+}
+?>
 
 <div class="cart-grid">
 
     <?php
     $user_id = $_SESSION['id'];
     $result = getQueryResult(
-        "SELECT id, ids, total FROM users.orders WHERE user_id = $user_id");
+        "SELECT id, user_id, ids, total FROM users.orders");
 
     $items = getItemsFromResult($result);
 
     ?>
 
-    <h1>Order Table</h1>
-    <table>
-        <tr class="gradient">
-            <th>Order ID</th><th>Names</th><th>Total</th>
+    <h1>Orders</h1>
+    <table class="admin">
+        <tr>
+            <th>Order ID</th><th>User Id</th><th>Names</th><th>Total</th>
         </tr>
         <?php foreach ($items as $item): ?>
-    <tr class="gradient">
+    <tr >
         <td><?php echo $item['id']; ?></td>
+        <td><?php echo $item['user_id']; ?></td>
         <td><?php echo $item['ids']; ?></td>
         <td>$<?php echo $item['total']; ?></td>
+        <td><img id="buy" src="../images/trash.svg" style="margin-left: 1rem" onclick="deleteSmth('edit_orders',  <?=$item['id'];?>)"></td>
     </tr>
     <?php endforeach; ?>
     </table>
@@ -58,9 +72,6 @@
 
 <?php includeFooter(); ?>
 <?php includeWarning(); ?>
-
-<script src="../js/header.js"></script>
-
 
 </body>
 </html>

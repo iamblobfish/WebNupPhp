@@ -8,7 +8,7 @@
 <body style = "background-image: url(../images/background.png);">
 <button id="back" class="important-button">Back</button>
 
-<?php include "footer.html"; ?>
+<?php include "footer.php"; ?>
 </body>
 </html>
 

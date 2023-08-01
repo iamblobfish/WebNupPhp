@@ -4,6 +4,7 @@ global $base_url;
 
 $_SESSION['id'] = $_POST['newId'] ?? $_SESSION['id'];
 $_SESSION['logged_in'] = $_POST['loggedin'] ?? $_SESSION['logged_in'];
+$_SESSION['admin'] = $_POST['admin'] ?? $_SESSION['admin'];
 
 if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == "1") {
     $icon_path = "../images/profile.svg";
@@ -15,9 +16,12 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == "1") {
     $orders = "showCustomAlert('Log In to view orders :)')";
 }
 
+if (isset($_SESSION['admin']) and $_SESSION['admin'] == "1") {
+    $style = 'flex';
+} else $style = 'none';
+
 ?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <header>
     <img id="home" class="gradient" src="../images/home.svg" onclick="switchPage('main')" alt="search">
     <p class="gradient" onclick="switchPage('category')">Collections</p>
@@ -32,6 +36,8 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == "1") {
 
     <img id="orders" class="gradient" src="../images/box.svg" alt="search" onclick="<?=$orders?>">
     <img id="cart" class="gradient" src="../images/cart.svg" alt="search" onclick="switchPage('cart')">
+    <img id="admin" class="gradient" src="../images/crystal-ball-2.svg" alt="search" onclick="switchPage('edit_orders')" style="display: <?=$style?>">
+
 </header>
 
 

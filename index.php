@@ -19,6 +19,11 @@ function includeFooter(): void
     include INCLUDES_PATH . '/footer.php';
 }
 
+function includeAdminHeader(): void
+{
+    include 'pages/header_admin.php';
+}
+
 function getQueryResult($query, $add = null)
 {
     $connection = new mysqli('localhost', 'root', '1029384756', 'users');
@@ -55,7 +60,7 @@ function customErrorHandler($errno, $errstr, $errfile, $errline)
     if ($errno === 404) {
         // Handle 404 error here
         echo '<h1>Page not found, sorry :)</h1>';
-        include 'includes/404.html';
+        include 'includes/404.php';
     } else {
         echo "Caught error: " . $errstr->getMessage();
         include 'includes/error.html';;
@@ -85,7 +90,7 @@ try {
             } else {
                 echo '<h1>Please Log In to open profile :)</h1>';
                 echo "<span class='text' style='text-align: center' onclick=switchPage('login')>Log In</span>";
-                include 'includes/404.html';
+                include 'includes/404.php';
             }
             break;
         case 'login':
@@ -117,12 +122,60 @@ try {
                 include 'pages/item.php';
             } else {
                 echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
-                include 'includes/404.html';
+                include 'includes/404.php';
+            }
+            break;
+        case 'choice':
+            if (isset($_SESSION['admin']) and $_SESSION['admin'] == "1") {
+                include 'pages/choice.php';
+            } else {
+                echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
+                include 'includes/404.php';
+            }
+            break;
+        case  "edit_orders":
+            if (isset($_SESSION['admin']) and $_SESSION['admin'] == "1") {
+                include 'pages/editOrders.php';
+            } else {
+                echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
+                include 'includes/404.php';
+            }
+            break;
+        case  "edit_items":
+            if (isset($_SESSION['admin']) and $_SESSION['admin'] == "1") {
+                include 'pages/editItems.php';
+            } else {
+                echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
+                include 'includes/404.php';
+            }
+            break;
+        case  "edit_users":
+            if (isset($_SESSION['admin']) and $_SESSION['admin'] == "1") {
+                include 'pages/editUsers.php';
+            } else {
+                echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
+                include 'includes/404.php';
+            }
+            break;
+        case  "user":
+            if (isset($_SESSION['admin']) and $_SESSION['admin'] == "1" and $_GET('id') !== null) {
+                include 'pages/edit_user.php';
+            } else {
+                echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
+                include 'includes/404.php';
+            }
+            break;
+        case  "edit_item":
+            if (isset($_SESSION['admin']) and $_SESSION['admin'] == "1") {
+                include 'pages/edit_item.php';
+            } else {
+                echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
+                include 'includes/404.php';
             }
             break;
         default:
             echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
-            include 'includes/404.html';
+            include 'includes/404.php';
             break;
     }
 } catch (Exception $e) {

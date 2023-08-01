@@ -18,6 +18,9 @@ if (isset($_SESSION['logged_in'])){
     $_SESSION['logged_in'] = $_POST['loggedin'] ?? $_SESSION['logged_in'];
 } else $_SESSION['logged_in'] = "false";
 
+if (isset($_SESSION['admin'])){
+    $_SESSION['admin'] = $_POST['admin'] ?? $_SESSION['admin'];
+} else $_SESSION['admin'] = "0";
 ?>
 
 <html lang="">

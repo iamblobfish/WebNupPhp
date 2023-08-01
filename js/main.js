@@ -75,11 +75,11 @@ function delFromItemList(newId) {
     location.reload()
 }
 
-function buy(total) {
+function buy(total, names) {
     let data = getListFromSessionStorage()
     if (data != []) {
         let elements = data.join(',')
-        $.post('index.php?page=cart', {'buy': elements, 'total' : total}, function (response) {
+        $.post('index.php?page=cart', {'buy': elements, 'total' : total, 'names':names}, function (response) {
             // Logic to handle the response from the server
             // console.log(response); // or any other logic you want to apply
         });
@@ -128,6 +128,7 @@ function enable() {
                 document.getElementById(itemId).disabled = true;
             }
         }
+        location.reload()
     }
 
 }
@@ -136,7 +137,7 @@ function logOut() {
     $.ajax({
         url: "index.php",
         type: "POST",
-        data: {newId: 'a', loggedin: '0'},
+        data: {newId: 'a', loggedin: '0', 'admin': "0"},
         success: function () {
             console.log("Session ID updated successfully");
         },
@@ -149,6 +150,18 @@ function logOut() {
 
 function deleteProfile(){
     $.post('index.php?page=profile', {'delete': ""}, function (response) {
+    });
+    location.reload()
+}
+
+function deleteSmth(page, id){
+    $.post('index.php?page='+page, {'delete': id}, function (response) {
+    });
+    location.reload()
+}
+
+function editSmth(page, data){
+    $.post('index.php?page='+page, data, function (response) {
     });
     location.reload()
 }

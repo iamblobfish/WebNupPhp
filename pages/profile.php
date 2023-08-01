@@ -5,11 +5,22 @@ $result = getQueryResult(
 
 $_SESSION['id'] = $_POST['newId'] ?? $_SESSION['id'];
 
+$_SESSION['admin'] = $_POST['admin'] ?? $_SESSION['admin'];
+
 $_SESSION['logged_in'] = $_POST['loggedin'] ?? $_SESSION['logged_in'];
 
 $profile = getItemsFromResult($result)[0];
 
 $src = $profile['photo'] ?? "../images/profile.svg";
+
+if (isset($_SESSION['admin']) and $_SESSION['admin'] == "1") {
+    $style = 'flex';
+} else $style = 'none';
+
+if (isset($_SESSION['id']) && $_SESSION['id'] == 1){
+    $del = 'none';
+} else $del = 'flex';
+
 
 ?>
 
@@ -23,6 +34,11 @@ $src = $profile['photo'] ?? "../images/profile.svg";
     <link rel="stylesheet" type="text/css" href="../css/profile.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Profile</title>
+    <style>
+        label{
+            text-align: center;
+        }
+    </style>
 </head>
 <body style="background-image: url(../images/background.png);">
 <?php includeHeader(); ?>
@@ -30,16 +46,15 @@ $src = $profile['photo'] ?? "../images/profile.svg";
     <div class="block">
         <img id="profileImage" src="<?= $src ?>" class="item" alt="Profile Image">
         <button id="logout" class="important-button gradient" onclick="logOut()" type="button">LogOut</button>
-        <button class="important-button gradient" type="button" onclick="deleteProfile(); logOut()">Delete Account</button>
+        <button class="important-button gradient" type="button" onclick="deleteProfile();logOut();" style="display: <?=$del?>">Delete Account</button>
     </div>
     <div class="block">
         <input id="name" name="editable" class="gradient" value="<?= $profile['username'] ?>" disabled>
         <input id='email' name="editable" class="gradient" type="email" value="<?= $profile['email']; ?>" disabled>
         <input id='phone' name="editable" class="gradient" type="tel" value="<?= $profile['phone_number']; ?>" disabled>
 
-
-        <label for="address">Addresses:</label>
-        <input id="address" disabled class="gradient" value="Street 1,1, 1">
+        <p>Address:</p>
+        <input class="gradient" type="email" value="Danais Str. 201, 2, 4" disabled>
 
         <button id="edit" class="important-button gradient" type="button" onclick="enable()">Edit</button>
         <button id="submit" form=profile class="important-button gradient" type="button" style="display: none"
@@ -47,11 +62,16 @@ $src = $profile['photo'] ?? "../images/profile.svg";
         </button>
 
 
+
+
     </div>
 
 </form>
 
 </body>
+
+<?php includeFooter(); ?>
+
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
     $name = $_POST['name'];
@@ -61,9 +81,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     $id = $_SESSION['id'];
-    getQueryResult("DELETE FROM users.users_info  WHERE id = $id;");
+    if ($id != 1) {
+        getQueryResult("DELETE FROM users.users_info  WHERE id = $id");
+    }
 }
 ?>
-<?php includeFooter(); ?>
 
 </html>
