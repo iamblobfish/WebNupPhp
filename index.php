@@ -54,19 +54,6 @@ function getItemsFromResult($result): array
     return $items ?? [];
 }
 
-// Custom error handler function
-function customErrorHandler($errno, $errstr, $errfile, $errline)
-{
-    if ($errno === 404) {
-        // Handle 404 error here
-        echo '<h1>Page not found, sorry :)</h1>';
-        include 'includes/404.php';
-    } else {
-        echo "Caught error: " . $errstr->getMessage();
-        include 'includes/error.html';;
-    }
-}
-
 session_start();
 ?>
 

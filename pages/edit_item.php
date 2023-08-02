@@ -3,21 +3,43 @@ $id = $_GET['id'];
 if ($id != "") {
     $result = getQueryResult("SELECT id, title, price, src, sale, collection, description FROM users.items WHERE id = '$id'");
     $item = getItemsFromResult($result)[0];
+    $subm = 'Submit';
 } else {
     $zero = array();
-    $zero['title']= "";$zero['price']= "";$zero['collection']= "";$zero['description']= "";$zero['sale']= ""; $zero['src']= "../images/dress1.png";
+    $zero['title'] = "";
+    $zero['price'] = "";
+    $zero['collection'] = "";
+    $zero['description'] = "";
+    $zero['sale'] = "";
+    $zero['src'] = "../images/dress1.png";
     $item = $zero;
+    $subm = 'Add Item';
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
+    $title = $_POST['title'];
+    $price = $_POST['price'];
+    $collection = $_POST['collection'];
+    $description = $_POST['description'];
+    $sale = $_POST['sale'];
+    $id = $_GET['id'];
+    if (isset($_FILES['image'])){
+        $targetDir = "/Users/sashafedorova/NUP/web_at/WebNupPhp/images/";
+        $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
+    } else $targetFile = $item['src'];
+    if ($id != "") {
+        getQueryResult("UPDATE users.items SET title = '$title', sale=$sale, price = $price, collection='$collection', description='$description', src = '$targetFile'  WHERE id = $id");
+    } else {
+        getQueryResult("INSERT INTO users.items (title, sale, price, collection, description, src) VALUES ('$title',$sale, $price,'$collection','$description', '$targetFile')");
+        ?>
+        <script>switchPage('edit_items')</script>
+        <?php
+    }
+} else $targetFile = $item['src'];
 
+//$src = $item['src'] ?? "../images/dress1.png";
 
-$src = $item['src'] ?? "../images/dress1.png";
-
-
-
-if ($id == 1) {
-    $del = 'none';
-} else $del = 'flex';
 
 $colls = getItemsFromResult(getQueryResult("SELECT DISTINCT collection FROM users.items"));
 ?>
@@ -36,9 +58,15 @@ $colls = getItemsFromResult(getQueryResult("SELECT DISTINCT collection FROM user
 </head>
 <body style="background-image: url(../images/background.png);">
 <?php includeAdminHeader(); ?>
-<form id=profile class="profile item-page" method="post">
-    <div class="block" style="margin: 0 auto">
-        <img class='item_img gradient' src="<?= $item['src'] ?>" alt="Product Image">
+<!--<form action="upload.php" method="post" enctype="multipart/form-data">-->
+<form action="upload.php" id=profile class="profile item-page" method="post" enctype="multipart/form-data">
+<!--<form id=profile class="profile item-page" method="post">-->
+    <div class="block" id="i" style="margin: 0 auto">
+        <label id="img" class="important-button gradient">
+            Choose new image
+            <input type="file" id="imageFile" style="display: none;">
+        </label>
+        <img class='item_img gradient' src="<?= $targetFile ?>">
         <button id='back' class="important-button gradient" type="button">Back
         </button>
     </div>
@@ -57,11 +85,14 @@ $colls = getItemsFromResult(getQueryResult("SELECT DISTINCT collection FROM user
         </div>
         <div class="flex">
             <label>Collection:</label>
-            <input name="editable" list="collectionList" id='collection' style="width: 5rem" class="gradient" type="text"
+            <input name="editable" list="collectionList" id='collection' style="width: 5rem" class="gradient"
+                   type="text"
                    value="<?= $item['collection'] ?>" disabled>
             <datalist id="collectionList">
-                <?php foreach ($colls as $coll): ?>
-                <option value=<?=$coll['collection']?>>
+                <?php foreach ($colls
+
+                as $coll): ?>
+                <option value=<?= $coll['collection'] ?>>
                     <?php endforeach; ?>
             </datalist>
         </div>
@@ -70,41 +101,55 @@ $colls = getItemsFromResult(getQueryResult("SELECT DISTINCT collection FROM user
                   disabled><?= $item['description'] ?></textarea>
         <button id="edit" class="important-button gradient" type="button" onclick="enable();">Edit</button>
         <button id="submit" form=profile class="important-button gradient" type="button" style="display: none"
-                onclick="enable(); editSmth('edit_item&id=',
+                onclick="enable(); editSmth('edit_item&id=<?= $id ?>',
                         {
                         'title': document.getElementById('title').value,
                         'price': document.getElementById('price').value,
                         'collection': document.getElementById('collection').value,
                         'description': document.getElementById('description').value,
                         'sale': document.getElementById('sale').value,
-                        })">Submit
+                        });uploadImage(); location.reload()"><?= $subm ?>
         </button>
     </div>
 
 </form>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function uploadImage() {
+        const fileInput = document.getElementById('imageFile');
+        const file = fileInput.files[0];
+
+        if (file) {
+            const formData = new FormData();
+            formData.append('image', file);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'index.php?page=edit_item&id=<?=$id?>', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                }
+            };
+            xhr.send(formData);
+        } else {
+            alert('Please choose a file.');
+        }
+    }
+</script>
 
 <?php includeFooter(); ?>
+<?php includeWarning(); ?>
 
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
-    $title = $_POST['title'];
-    $price = $_POST['price'];
-    $collection = $_POST['collection'];
-    $description = $_POST['description'];
-    $sale = $_POST['sale'];
-    $id = $_GET['id'];
-    if ($id != "") {
-        getQueryResult("UPDATE users.items SET title = '$title', sale=$sale, price = $price, collection='$collection', description='$description'  WHERE id = $id");
-    } else {
-        getQueryResult("INSERT INTO users.items (title, sale, price, collection, description) VALUES ($title,$sale, $price,$collection,$description)");
-        $new_id = getItemsFromResult(getQueryResult("SELECT id FROM users.items WHERE title = $title"))[0]['id'];
-//        echo "<script>switchPage('edit_item&id=$new_id')</script>";
-        echo $new_id;
-    }
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['image'])) {
+    $targetDir = "/Users/sashafedorova/NUP/web_at/WebNupPhp/images/"; // Directory where images will be stored
+    $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+    move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
 
 }
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     $id = $_GET['id'];
@@ -112,6 +157,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
         getQueryResult("DELETE FROM users.items  WHERE id = $id");
     }
 }
+
+
 ?>
 
 </html>
