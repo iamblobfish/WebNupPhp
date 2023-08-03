@@ -51,7 +51,7 @@ form.profile input:disabled {
 
 form.profile textarea {
     padding: 10px;
-    min-height: 12rem;
+    min-height: 8rem;
     max-height: 15rem;
     min-width: min(30rem, 50vw);
     resize: vertical;

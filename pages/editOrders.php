@@ -4,7 +4,8 @@
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" type="text/css" href="../css/elements.css">
     <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" type="text/css" href="../css/item.css">
+<!--    <link rel="stylesheet" type="text/css" href="../css/item.css">-->
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title> Cart </title>
     <style>

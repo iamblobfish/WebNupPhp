@@ -145,8 +145,14 @@ try {
             }
             break;
         case  "user":
-            if (isset($_SESSION['admin']) and $_SESSION['admin'] == "1" and $_GET('id') !== null) {
-                include 'pages/edit_user.php';
+            if (isset($_SESSION['admin']) and $_SESSION['admin'] == "1" ) {
+                $id = $_GET['id'];
+                if (sizeof(getItemsFromResult(getQueryResult("SELECT id FROM users.users_info WHERE id = $id")))== 1)
+                    include 'pages/edit_user.php';
+                else {
+                    echo '<h1>User with id ' . $id . ' not found, sorry :)</h1>';
+                    include 'includes/404.php';
+                }
             } else {
                 echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
                 include 'includes/404.php';
@@ -154,7 +160,14 @@ try {
             break;
         case  "edit_item":
             if (isset($_SESSION['admin']) and $_SESSION['admin'] == "1") {
-                include 'pages/edit_item.php';
+                $id = $_GET['id'];
+                if (sizeof(getItemsFromResult(getQueryResult("SELECT id FROM users.items WHERE id = $id")))== 1)
+                    include 'pages/edit_item.php';
+                else {
+                    echo '<h1>Item with id ' . $id . ' not found, sorry :)</h1>';
+                    include 'includes/404.php';
+                }
+
             } else {
                 echo '<h1>Page ' . $page . ' not found, sorry :)</h1>';
                 include 'includes/404.php';

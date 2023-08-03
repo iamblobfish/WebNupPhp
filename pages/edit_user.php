@@ -1,18 +1,3 @@
-<?php
-$result = getQueryResult(
-    "SELECT email,admin, username, first_name, last_name, phone_number, photo FROM users.users_info WHERE id = ?",
-    $_GET['id']);
-
-$profile = getItemsFromResult($result)[0];
-
-$id = $_GET['id'];
-
-$src = $profile['photo'] ?? "../images/profile.svg";
-
-if ($id == 1) {
-    $del = 'none';
-} else $del = 'flex';
-?>
 
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
@@ -25,6 +10,20 @@ if ($id == 1) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Profile</title>
 </head>
+<?php
+$result = getQueryResult(
+    "SELECT email,admin, username, first_name, last_name, phone_number, photo FROM users.users_info WHERE id = ?",
+    $_GET['id']);
+$profile = getItemsFromResult($result)[0];
+
+$id = $_GET['id'];
+
+$src = $profile['photo'] ?? "../images/profile.svg";
+
+if ($id == 1) {
+    $del = 'none';
+} else $del = 'flex';
+?>
 <body style="background-image: url(../images/background.png);">
 <?php includeAdminHeader(); ?>
 <form id=profile class="profile" method="post">

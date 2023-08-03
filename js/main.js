@@ -109,6 +109,7 @@ function enable() {
     if (btnText === 'Edit') {
         document.getElementById('edit').textContent = 'Back'
         document.getElementById('submit').style = "display: flex";
+        document.getElementById('img').style = "width: auto; display: inherit";
 
         const itemElements = document.getElementsByName('editable');
         for (let i = 0; i < itemElements.length; i++) {
@@ -120,6 +121,7 @@ function enable() {
     } else {
         document.getElementById('edit').textContent = 'Edit'
         document.getElementById('submit').style = "display: none";
+        document.getElementById('img').style = "display: none";
 
         const itemElements = document.getElementsByName('editable');
         for (let i = 0; i < itemElements.length; i++) {
@@ -128,7 +130,7 @@ function enable() {
                 document.getElementById(itemId).disabled = true;
             }
         }
-        location.reload()
+        // location.reload()
     }
 
 }
@@ -163,5 +165,5 @@ function deleteSmth(page, id){
 function editSmth(page, data){
     $.post('index.php?page='+page, data, function (response) {
     });
-    location.reload()
+    // location.reload()
 }
