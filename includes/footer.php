@@ -1,5 +1,3 @@
-
-
 <script>
     const itemElements = document.getElementsByClassName('item');
 
